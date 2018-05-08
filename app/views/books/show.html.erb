@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Book name:</strong>
+  <%= @book.book_name %>
+</p>
+<p>
+  <strong>著者:</strong>
+  <%= @book.book_name %>
+</p>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= image_tag @book.image %>
+</p>
+
+<p>
+  <strong>貸出状況:</strong>
+  
+  <% @book.favorite_users.each do |favorite_user| %>
+  <%= favorite_user.id %>
+  <% end %>
+</p>
+<p>
+  <strong>予約人数:</strong>
+  <%= @favorite_users.count %>
+  <%= @favorite_users %>
+</p>
+<p>
+  <% if @favorite.present? %>
+    <%= link_to '予約をキャンセルする', favorite_path(book_id: @book.id), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to '予約する', favorites_path(book_id: @book.id), method: :post, class: 'btn btn-primary' %>
+  <% end %>
+</p>
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>

@@ -1,0 +1,28 @@
+<h1>Sign up</h1>
+
+<% if @lessee.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@lessee.errors.count, "error") %> prohibited this @lessee from being saved:</h2>
+    <ul>
+    <% @lessee.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with(model: @lessee, local: true) do |f| %>  
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+
+  <%= f.submit "Create my account" %>
+<% end %>
