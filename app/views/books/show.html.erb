@@ -17,9 +17,7 @@
 <p>
   <strong>貸出状況:</strong>
   
-  <% @book.favorite_users.each do |favorite_user| %>
-  <%= favorite_user.id %>
-  <% end %>
+  <%= @book.state %>
 </p>
 <p>
   <strong>予約人数:</strong>
