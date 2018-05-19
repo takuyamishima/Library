@@ -1,10 +1,11 @@
 class BooksController < ApplicationController
+  before_action :check, only: [:index, :new, :show, :edit, :update, :destroy]
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all
+    @books = Book.search(params[:search])
   end
 
   # GET /books/1
@@ -74,4 +75,14 @@ class BooksController < ApplicationController
     def book_params
       params.require(:book).permit(:book_name, :image, :user_id)
     end
+
+
+  def check
+    @current_user ||= User.find_by(id: session[:user_id])
+    if !current_user.nil? == false
+       redirect_to new_session_path
+    return
+      
+    end
+  end
 end

@@ -1,11 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Book name:</strong>
-  <%= @book.book_name %>
-</p>
-<p>
-  <strong>著者:</strong>
+  <strong>書籍名:</strong>
   <%= @book.book_name %>
 </p>
 <p id="notice"><%= notice %></p>
@@ -22,7 +18,7 @@
 <p>
   <strong>予約人数:</strong>
   <%= @favorite_users.count %>
-  <%= @favorite_users %>
+  
 </p>
 <p>
   <% if @favorite.present? %>
@@ -31,5 +27,4 @@
     <%= link_to '予約する', favorites_path(book_id: @book.id), method: :post, class: 'btn btn-primary' %>
   <% end %>
 </p>
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+<%= link_to '一覧に戻る', books_path %>

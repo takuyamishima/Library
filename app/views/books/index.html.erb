@@ -1,7 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Books</h1>
-
+<%= form_tag books_path, :method => 'get' do %> <%#　projects_pathはモデル名で読みかえること %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :books_name => nil %>
+  </p>
+<% end %>
+<p></p>
 <table>
   <thead>
     <tr>
@@ -15,8 +21,7 @@
       <tr>
         <td><%= book.book_name %></td>
         <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Book', new_book_path %>
+

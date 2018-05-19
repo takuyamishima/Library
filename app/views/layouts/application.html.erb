@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Instaclone</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>例コード</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
+  <header>
+    <ul>
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
 
     <% if logged_in? %>
-      <%= link_to "Profile", user_path(current_user.id) %>
-      <%= link_to "Logout", session_path(current_user.id), method: :delete %>
+      
+      <li><%= link_to "本を探す", books_path %></li>
+      <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
     <% else %>
-      <%= link_to "Sign up", new_user_path %>
-      <%= link_to "Login", new_session_path %>
+      <li><%= link_to "登録する", new_user_path %></li>
+      <li><%= link_to "Login", new_session_path %></li>
     <% end %>
 
-    <%= yield %>
-  </body>
+    </ul>
+  </header>
+
+<%= yield %>
+
+</body>
 </html>
