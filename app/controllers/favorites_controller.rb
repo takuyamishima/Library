@@ -2,7 +2,11 @@ class FavoritesController < ApplicationController
 
   def create
     favorite = current_user.favorites.create(book_id: params[:book_id])
-    redirect_to books_url, notice: "#ブログをお気に入り登録しました"
+    if favorite.save
+        BookingMailer.booking_mail(@booking).deliver  ##追記
+    
+    redirect_to books_url, notice: "#本を予約しました"
+    end
   end
 
   def destroy

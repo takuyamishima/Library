@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :bookings
+  resources :contacts
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get 'sessions/new'
@@ -9,4 +11,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   get '/', to: 'homes#index'
   resources :favorites, only: [:create, :destroy]
+  if Rails.env.development?
+  mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 end
