@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   get 'sessions/new'
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:index, :new, :create]
   resources :books, only: [:index, :show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :sessions, only: [:new, :create, :destroy]
