@@ -5,13 +5,11 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   get 'sessions/new'
 
-  resources :users, only: [:index, :new, :create]
+  resources :users
   resources :books, only: [:index, :show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :sessions, only: [:new, :create, :destroy]
   get '/', to: 'homes#index'
   resources :favorites, only: [:create, :destroy]
-  if Rails.env.development?
   mount LetterOpenerWeb::Engine, at: "/letter_opener"
-  end
 end
