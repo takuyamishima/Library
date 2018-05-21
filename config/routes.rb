@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   get '/', to: 'homes#index'
   resources :favorites, only: [:create, :destroy]
+  if Rails.env.development?
   mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 end
