@@ -6,7 +6,8 @@ class ContactsController < InheritedResources::Base
 
   def create
     @contact = Contact.new(contact_params)
-
+    @contact.user_email = current_user.email
+    @contact.name = current_user.user_name
     respond_to do |format|
       if @contact.save
         ContactMailer.contact_mail(@contact).deliver  ##追記
