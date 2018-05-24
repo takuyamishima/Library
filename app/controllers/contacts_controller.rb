@@ -11,7 +11,7 @@ class ContactsController < InheritedResources::Base
     respond_to do |format|
       if @contact.save
         ContactMailer.contact_mail(@contact).deliver  ##追記
-        format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
+        format.html { redirect_to books_path, notice: '本のリクエストが完了しました' }
         format.json { render :show, status: :created, location: @contact }
       else
         format.html { render :new }
