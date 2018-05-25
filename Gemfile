@@ -61,6 +61,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'activeadmin'
 gem 'devise'
+gem 'bootstrap_form'
+
 
 group :development do
   gem 'letter_opener_web'
