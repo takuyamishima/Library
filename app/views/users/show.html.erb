@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<p><%= link_to '編集', edit_user_path %></p>
 <p>
-  <strong>User name:</strong>
+  <strong>名前:</strong>
   <%= @user.user_name %>
 </p>
 
@@ -14,6 +14,7 @@
 <p><%= favorite_user.book_name %></p>
 <% end %>
 
+リクエストした本
 <% @contact.each do |contact_book|  %>
 <p><%= contact_book.content %></p>
 <% end %>
