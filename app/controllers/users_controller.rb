@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     
-    @favorite = current_user.favorites.find_by(user_id: @user.id)
+    
      @favorite_users = @user.favorite_books
      @contact = @user.contact_books
      
