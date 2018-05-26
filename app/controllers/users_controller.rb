@@ -11,6 +11,11 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    
+    @favorite = current_user.favorites.find_by(user_id: @user.id)
+     @favorite_users = @user.favorite_books
+     @contact = @user.contact_books
+     
   end
 
   # GET /users/new

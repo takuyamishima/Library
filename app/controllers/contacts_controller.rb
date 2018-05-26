@@ -6,10 +6,18 @@ class ContactsController < InheritedResources::Base
 
   def create
     @contact = Contact.new(contact_params)
+    @contact.user_id = current_user.id
     @contact.user_email = current_user.email
     @contact.name = current_user.user_name
+    
+    @contact_user = Contactbook.new(params[:id])
+    @contact_user.user_id = current_user.id
+    @contact_user.contact_id = @contact.id
+    @contact_user.save
+    
     respond_to do |format|
       if @contact.save
+         
         ContactMailer.contact_mail(@contact).deliver  ##追記
         format.html { redirect_to books_path, notice: '本のリクエストが完了しました' }
         format.json { render :show, status: :created, location: @contact }

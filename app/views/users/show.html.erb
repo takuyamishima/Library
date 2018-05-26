@@ -9,3 +9,11 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
+予約している本
+<% @favorite_users.each do |favorite_user|  %>
+<p><%= favorite_user.book_name %></p>
+<% end %>
+
+<% @contact.each do |contact_book|  %>
+<p><%= contact_book.content %></p>
+<% end %>

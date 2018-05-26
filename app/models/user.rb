@@ -6,4 +6,8 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
   has_many :favorites, dependent: :destroy
+  has_many :favorite_books, through: :favorites, source: :book
+  has_many :contactbooks, dependent: :destroy
+  has_many :contact_books, through: :contactbooks, source: :contact
+  
 end

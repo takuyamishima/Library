@@ -4,6 +4,7 @@ class FavoritesController < ApplicationController
     favorite = current_user.favorites.create(book_id: params[:book_id])
     favorite.user_emai = current_user.email
     @booking = favorite
+    
     if favorite.save
         BookingMailer.booking_mail(@booking).deliver  ##追記
 

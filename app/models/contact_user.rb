@@ -1,0 +1,3 @@
+class ContactUser < ApplicationRecord
+
+end
