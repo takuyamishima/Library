@@ -1,11 +1,17 @@
 <h1>Log in</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
 <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
 
+<div class="field">
   <%= f.label :email %>
   <%= f.email_field :email %>
-
+</div>
+<div class="field">
   <%= f.label :password %>
   <%= f.password_field :password %>
-
-  <%= f.submit "Log in" %>
+</div>
+  <%= f.submit "Log in", class: "btn btn-primary"   %>
 <% end %>
+  </div>
+</div>

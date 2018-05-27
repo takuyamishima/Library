@@ -62,7 +62,7 @@ gem 'mini_magick'
 gem 'activeadmin'
 gem 'devise'
 gem 'bootstrap_form'
-gem 'frontend-generators'
+gem 'bootstrap-sass',       '3.2.0.0'
 
 group :development do
   gem 'letter_opener_web'

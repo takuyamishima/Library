@@ -1,3 +1,5 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
 <p id="notice"><%= notice %></p>
 <p><%= link_to '編集', edit_user_path %></p>
 <p>
@@ -9,12 +11,14 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
-予約している本
+<p><strong>予約している本</strong>
 <% @favorite_users.each do |favorite_user|  %>
 <p><%= favorite_user.book_name %></p>
 <% end %>
 
-リクエストした本
+<p><strong>リクエストした本</strong>
 <% @contact.each do |contact_book|  %>
 <p><%= contact_book.content %></p>
 <% end %>
+</div>
+    </div>
