@@ -10,7 +10,7 @@
     <%= text_field_tag :search, params[:search] %>
 </div>
 <div class="field">  <p>
-    <%= submit_tag "検索", class: "btn btn-primary", :books_name => nil %>
+    <%= submit_tag "検索", :books_name => nil, class: "btn btn-primary" %>
   </p>
   </div>
 <% end %>
