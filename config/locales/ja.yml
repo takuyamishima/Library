@@ -32,30 +32,13 @@
 ja:
   activerecord:
     models:
-      user: ユーザー
-    attributes:
-      user:
-        user_name: 名前
-        email: メールアドレス
-        password_digest: パスワード
-        password: パスワード
-        
-  activerecord:
-    models:
-      session: セッション
-    attributes:
-      session:
-        user_name: 名前
-        email: メールアドレス
-        password_digest: パスワード
-        password: パスワード
-        
-  activerecord:
-    models:
       contact: リクエスト
+      user: ユーザー
     attributes:
       contact:
         content: 読みたい本
+      user:
+        user_name: 名前
         email: メールアドレス
         password_digest: パスワード
         password: パスワード

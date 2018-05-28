@@ -1,4 +1,4 @@
-  <% if @user.errors.any? %>
+<% if @user.errors.any? %>
 <div class="row">
 <div class="col-md-6 col-md-offset-3">
     <div id="error_explanation">
@@ -17,7 +17,7 @@
 <%= form_with(model: @user, local: true) do |form| %>
 
   <div class="field">
-    <%= form.label :名前 %>
+    <%= form.label :user_name %>
     <%= form.text_field :user_name, id: :user_user_name %>
   </div>
 
