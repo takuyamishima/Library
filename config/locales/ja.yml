@@ -34,11 +34,16 @@ ja:
     models:
       contact: リクエスト
       user: ユーザー
+      session: セッション
     attributes:
       contact:
         content: 読みたい本
       user:
         user_name: 名前
+        email: メールアドレス
+        password_digest: パスワード
+        password: パスワード
+　　　session:
         email: メールアドレス
         password_digest: パスワード
         password: パスワード
